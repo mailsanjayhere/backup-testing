@@ -1,0 +1,91 @@
+! Command: show running-config
+! device: r3 (cEOSLab, EOS-4.34.2F-43232954.4342F.1 (engineering build))
+!
+no aaa root
+!
+username admin privilege 15 role network-admin secret sha512 $6$xLZyviDVj9ksaHYB$YnMlrFpjWZInUbWz/rUKMRAtdosezBbk4P1eFXGv8dp49CKDuAM3WNoXLkf4zwnspqbQhf.2W4LpeLal3RSuJ/
+!
+management api http-commands
+   no shutdown
+   !
+   vrf management
+      no shutdown
+!
+no service interface inactive port-id allocation disabled
+!
+transceiver qsfp default-mode 4x10G
+!
+service routing protocols model multi-agent
+!
+logging monitor debugging
+!
+hostname r3
+ip host r1 10.0.0.1 10.1.0.1
+ip host r2 10.0.0.2 10.1.0.2 10.1.0.5
+ip host r4 10.0.0.4 10.1.0.10
+!
+spanning-tree mode mstp
+!
+system l1
+   unsupported speed action error
+   unsupported error-correction action error
+!
+vrf instance management
+!
+management api gnmi
+   transport grpc default
+      vrf management
+!
+management api netconf
+   transport ssh default
+      vrf management
+!
+aaa authorization exec default local
+!
+interface Ethernet1
+   description r3 -> r2
+   mac-address ca:f0:00:03:00:01
+   no switchport
+   ip address 10.1.0.6/30
+   ip ospf network point-to-point
+   ip ospf area 0.0.0.0
+!
+interface Ethernet2
+   description r3 -> r4
+   mac-address ca:f0:00:03:00:02
+   no switchport
+   ip address 10.1.0.9/30
+   ip ospf network point-to-point
+   ip ospf area 0.0.0.0
+!
+interface Loopback0
+   ip address 10.0.0.3/32
+   ip ospf area 0.0.0.0
+!
+interface Management0
+   vrf management
+   ip address 192.168.121.103/24
+   no lldp transmit
+   no lldp receive
+!
+ip routing
+no ip routing vrf management
+!
+ip route vrf management 0.0.0.0/0 192.168.121.1
+!
+router multicast
+   ipv4
+      software-forwarding kernel
+   !
+   ipv6
+      software-forwarding kernel
+!
+router ospf 1
+   router-id 10.0.0.3
+   interface unnumbered hello mask tx 0.0.0.0
+   max-lsa 12000
+   timers spf delay initial 100 200 500
+   timers lsa rx min interval 100
+   timers lsa tx delay initial 100 200 500
+!
+end

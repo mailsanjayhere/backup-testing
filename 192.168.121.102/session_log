@@ -1,0 +1,125 @@
+
+Last login: Thu Feb 26 11:00:37 2026 from 192.168.121.1
+
+r2#
+r2#terminal width 511
+Width set to 511 columns.
+r2#terminal length 0
+Pagination disabled.
+r2#
+r2#
+r2#show running-config
+! Command: show running-config
+! device: r2 (cEOSLab, EOS-4.34.2F-43232954.4342F.1 (engineering build))
+!
+no aaa root
+!
+username ******** privilege 15 role network-******** secret sha512 $6$VFiTgbcEPoBazQR5$buZcYtRzuDJ/s4v0GHqREQZEBYG.u4PtGCn3lVI9h0E7bmVYwM3dFClsEn39B6MTaL/f.rIwuRIFUMMQao8Oh1
+!
+management api http-commands
+   no shutdown
+   !
+   vrf management
+      no shutdown
+!
+no service interface inactive port-id allocation disabled
+!
+transceiver qsfp default-mode 4x10G
+!
+service routing protocols model multi-agent
+!
+logging monitor debugging
+!
+hostname r2
+ip host r1 10.0.0.1 10.1.0.1
+ip host r3 10.0.0.3 10.1.0.6 10.1.0.9
+ip host r4 10.0.0.4 10.1.0.10
+!
+spanning-tree mode mstp
+!
+system l1
+   unsupported speed action error
+   unsupported error-correction action error
+!
+vrf instance management
+!
+management api gnmi
+   transport grpc default
+      vrf management
+!
+management api netconf
+   transport ssh default
+      vrf management
+!
+aaa authorization exec default local
+!
+interface Ethernet1
+   description r2 -> r1
+   mac-address ca:f0:00:02:00:01
+   no switchport
+   ip address 10.1.0.2/30
+   ip ospf network point-to-point
+   ip ospf area 0.0.0.0
+!
+interface Ethernet2
+   description r2 -> r3
+   mac-address ca:f0:00:02:00:02
+   no switchport
+   ip address 10.1.0.5/30
+   ip ospf network point-to-point
+   ip ospf area 0.0.0.0
+!
+interface Loopback0
+   ip address 10.0.0.2/32
+   ip ospf area 0.0.0.0
+!
+interface Management0
+   vrf management
+   ip address 192.168.121.102/24
+   no lldp transmit
+   no lldp receive
+!
+ip routing
+no ip routing vrf management
+!
+ip route vrf management 0.0.0.0/0 192.168.121.1
+!
+router multicast
+   ipv4
+      software-forwarding kernel
+   !
+   ipv6
+      software-forwarding kernel
+!
+router ospf 1
+   router-id 10.0.0.2
+   interface unnumbered hello mask tx 0.0.0.0
+   max-lsa 12000
+   timers spf delay initial 100 200 500
+   timers lsa rx min interval 100
+   timers lsa tx delay initial 100 200 500
+!
+end
+r2#
+r2#show version
+Arista cEOSLab
+Hardware version: 
+Serial number: 499E1E50F410853FA8F46FF81F02CC8B
+Hardware MAC address: 001c.734b.34d7
+System MAC address: 001c.734b.34d7
+
+Software image version: 4.34.2F-43232954.4342F.1 (engineering build)
+Architecture: i686
+Internal build version: 4.34.2F-43232954.4342F.1
+Internal build ID: c299317b-de14-4cc1-9295-3bcc7f091852
+Image format version: 1.0
+Image optimization: None
+
+Kernel version: 6.17.0-14-generic
+
+Uptime: 29 minutes
+Total memory: 32636816 kB
+Free memory: 23937312 kB
+
+r2#
+r2#exit

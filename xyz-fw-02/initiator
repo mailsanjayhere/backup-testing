@@ -1,1 +1,1 @@
-"user/admin@admin.com"
+"scheduled: backups 0 0 * * * (m/h/dM/MY/d) UTC"

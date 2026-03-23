@@ -1,5 +1,5 @@
+Last login: Mon Mar 23 16:15:17 2026 from 192.168.121.1
 
-Last login: Thu Feb 26 11:00:37 2026 from 192.168.121.1
 
 r2#
 r2#terminal width 511
@@ -14,7 +14,7 @@ r2#show running-config
 !
 no aaa root
 !
-username ******** privilege 15 role network-******** secret sha512 $6$VFiTgbcEPoBazQR5$buZcYtRzuDJ/s4v0GHqREQZEBYG.u4PtGCn3lVI9h0E7bmVYwM3dFClsEn39B6MTaL/f.rIwuRIFUMMQao8Oh1
+username ******** privilege 15 role network-******** secret sha512 $6$4T3hsjsrzfxrCCJ1$4qESfDrFnlgh5H.yZoteGuEuyu3NU.88kfMGmRj45YjK0d6fRh7hGvUJUhODiTaOT.a6UxgM7sz8MRVddmT/C.
 !
 management api http-commands
    no shutdown
@@ -104,9 +104,9 @@ r2#
 r2#show version
 Arista cEOSLab
 Hardware version: 
-Serial number: 499E1E50F410853FA8F46FF81F02CC8B
-Hardware MAC address: 001c.734b.34d7
-System MAC address: 001c.734b.34d7
+Serial number: 642A9DE68DB8ECF29B44D4418E876BB0
+Hardware MAC address: 001c.7332.a908
+System MAC address: 001c.7332.a908
 
 Software image version: 4.34.2F-43232954.4342F.1 (engineering build)
 Architecture: i686
@@ -115,11 +115,11 @@ Internal build ID: c299317b-de14-4cc1-9295-3bcc7f091852
 Image format version: 1.0
 Image optimization: None
 
-Kernel version: 6.17.0-14-generic
+Kernel version: 6.17.0-19-generic
 
-Uptime: 29 minutes
-Total memory: 32636816 kB
-Free memory: 23937312 kB
+Uptime: 2 minutes
+Total memory: 32636820 kB
+Free memory: 24129776 kB
 
 r2#
 r2#exit

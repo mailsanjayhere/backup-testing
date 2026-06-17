@@ -19,7 +19,7 @@ Learn more about enabling ESM Apps service at https://ubuntu.com/esm
 3 devices have a firmware upgrade available.
 Run `fwupdmgr get-upgrades` for more information.
 
-Last login: Wed Jun 17 19:10:33 2026 from 172.18.0.7
+Last login: Wed Jun 17 19:33:27 2026 from 172.18.0.6
 
 ********-backup@sanps-Inspiron-7591:~$ 
 

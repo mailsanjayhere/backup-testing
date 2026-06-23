@@ -4,10 +4,6 @@ Welcome to Ubuntu 24.04.4 LTS (GNU/Linux 6.17.0-35-generic x86_64)
  * Management:     https://landscape.canonical.com
  * Support:        https://ubuntu.com/pro
 
-3 devices have a firmware upgrade available.
-Run `fwupdmgr get-upgrades` for more information.
-
-
 Expanded Security Maintenance for Applications is not enabled.
 
 0 updates can be applied immediately.
@@ -15,11 +11,7 @@ Expanded Security Maintenance for Applications is not enabled.
 22 additional security updates can be applied with ESM Apps.
 Learn more about enabling ESM Apps service at https://ubuntu.com/esm
 
-
-3 devices have a firmware upgrade available.
-Run `fwupdmgr get-upgrades` for more information.
-
-Last login: Thu Jun 18 05:30:01 2026 from 172.18.0.6
+Last login: Tue Jun 23 23:35:44 2026 from 172.18.0.8
 
 ********-backup@sanps-Inspiron-7591:~$ 
 

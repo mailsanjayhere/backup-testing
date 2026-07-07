@@ -10,8 +10,7 @@ Run `fwupdmgr get-upgrades` for more information.
 
 Expanded Security Maintenance for Applications is not enabled.
 
-19 updates can be applied immediately.
-10 of these updates are standard security updates.
+9 updates can be applied immediately.
 To see these additional updates run: apt list --upgradable
 
 22 additional security updates can be applied with ESM Apps.
@@ -21,7 +20,7 @@ Learn more about enabling ESM Apps service at https://ubuntu.com/esm
 3 devices have a firmware upgrade available.
 Run `fwupdmgr get-upgrades` for more information.
 
-Last login: Sat Jul  4 05:30:02 2026 from 172.18.0.5
+Last login: Tue Jul  7 20:10:03 2026 from 172.18.0.7
 
 ********-backup@sanps-Inspiron-7591:~$ 
 
